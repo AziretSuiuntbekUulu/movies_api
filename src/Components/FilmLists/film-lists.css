@@ -1,0 +1,7 @@
+.film-lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ffffff;
+    max-width: 1200px;
+}

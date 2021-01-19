@@ -1,0 +1,16 @@
+.ant-card-body {
+    display: flex;
+}
+
+.movie {
+    margin: 30px;
+}
+
+.text-content {
+    margin-left: 20px;
+}
+
+.date {
+    color: #827E7E;
+    font-size: 12px;
+}
