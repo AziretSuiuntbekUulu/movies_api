@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './film.css';
 import { Card, Typography } from 'antd';
 import 'antd/dist/antd.css';
-import avatar from './1415765.jpg';
+import { format } from 'date-fns';
 
 const { Title, Text } = Typography;
 
@@ -21,17 +21,25 @@ componentDidMount(){
     );
   }
 
+  shortDesc(str, maxLength, dots){
+    const normDesc = str.indexOf(' ', maxLength);
+    return (normDesc === -1 ? str : str.substr(0, normDesc) + dots); 
+  }
+
   newCard(movie){
-    const title = movie.title;
-    const desc = movie.overview;
+    const idMovie = movie.id;
+    const title = movie.original_title;
+    const desc = this.shortDesc(movie.overview, 150, "...");
+    const date = format(new Date(movie.release_date), 'yyyy-MM-dd');
+    const image = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
     return (
       <div className="movie">
-        <Card size="small" hoverable style={{ width: 454 }}>
-          <img height={270} src={avatar} alt="example"/>
+        <Card key={idMovie} size="small" hoverable style={{ width: 454 }}>
+          <img height={270} src={image} alt="example"/>
           <div className="text-content">
             <Title level={4}>{title}</Title>
-            <div className="date">March 5, 2020 </div>
+            <div className="date">{date}</div>
             <div className="genre">
             <Text code>Action</Text>
             <Text code>Drama</Text>
@@ -48,6 +56,7 @@ componentDidMount(){
     return(
       <div>
         {array.map(movie => this.newCard(movie))}
+        {console.log(array)}
       </div>
     );
   }
