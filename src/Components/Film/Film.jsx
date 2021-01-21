@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './film.css';
-import { Card, Typography } from 'antd';
+import { Card, Typography, Image } from 'antd';
 import 'antd/dist/antd.css';
 import { format } from 'date-fns';
 
@@ -36,7 +36,7 @@ componentDidMount(){
     return (
       <div className="movie">
         <Card key={idMovie} size="small" hoverable style={{ width: 454 }}>
-          <img height={270} src={image} alt="example"/>
+          <Image src={image} />
           <div className="text-content">
             <Title level={4}>{title}</Title>
             <div className="date">{date}</div>
