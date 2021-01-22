@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './film.css';
-import { Card, Typography, Image } from 'antd';
+import { Card, Typography, Image, Spin} from 'antd';
 import 'antd/dist/antd.css';
 import { format } from 'date-fns';
 
@@ -9,14 +9,16 @@ const { Title, Text } = Typography;
 class Film extends Component {
   
   state = {
-    array: []
+    array: [],
+    loading: true
   }
 
 componentDidMount(){
       fetch(`https://api.themoviedb.org/3/search/movie?api_key=05e95f40431909703294af8aa788da5d&query=return`)
       .then(res => res.json()).then(date =>
         this.setState({
-          array: date.results
+          array: date.results,
+          loading: false
       })
     );
   }
@@ -52,12 +54,16 @@ componentDidMount(){
   }
 
   render() {
-    const { array } = this.state;
+    const { array, loading } = this.state;
+
+    if(loading){
+      return <Spin size="large" />
+    }
+
     return(
-      <div>
+      <React.Fragment>
         {array.map(movie => this.newCard(movie))}
-        {console.log(array)}
-      </div>
+      </React.Fragment>
     );
   }
 }  

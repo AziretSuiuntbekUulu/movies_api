@@ -9,11 +9,6 @@ class FilmLists extends Component {
     return (
       <div className="film-lists">
         <Film />
-        <Film />
-        <Film />
-        <Film />
-        <Film />
-        <Film />
       </div>
     );
   }
