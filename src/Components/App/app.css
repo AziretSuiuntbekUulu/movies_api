@@ -1,5 +1,11 @@
-.app {
-  background: #e5e5e5;
+.container {
+  background: #E5E5E5;
   display: flex;
   justify-content: center;
+}
+
+.app {
+  background: #ffffff;
+  flex-direction: column;
+  max-width: 1200px;
 }

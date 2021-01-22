@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import './film-lists.css';
 import 'antd/dist/antd.css';
 import Film from '../Film';
+import { Row, Col } from 'antd';
 
 class FilmLists extends Component {
 
   render() {
     return (
-      <div className="film-lists">
-        <Film />
-      </div>
+        <Row span={8} offset={6} justify="center">
+          <Film />
+        </Row>
     );
   }
 }
