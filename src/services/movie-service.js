@@ -1,6 +1,4 @@
 export default class MovieService {
-
-    apiKey = '05e95f40431909703294af8aa788da5d';
     
     async getResource(url) {
         const res = await fetch(url);
